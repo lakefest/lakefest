@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAKE FEST - Команда Лесные Озёра</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏞️</text></svg>">
+</head>
+<body>
+    <div class="parallax-container">
+        <div class="parallax-layer layer-1"></div>
+        <div class="parallax-layer layer-2"></div>
+        <div class="parallax-layer layer-3"></div>
+        <div class="parallax-layer layer-4"></div>
+        
+        <div class="floating-leaves">
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+        </div>
+        
+        <div class="waves-container">
+            <div class="waves"></div>
+            <div class="waves"></div>
+            <div class="waves"></div>
+        </div>
+    </div>
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h1><span>LAKE</span> FEST</h1>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#mission">Миссия</a></li>
+                        <li><a href="#events">Мероприятия</a></li>
+                        <li><a href="#team">Команда</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="floating-elements">
+                <div class="floating-element"><i class="fas fa-coffee"></i></div>
+                <div class="floating-element"><i class="fas fa-heart"></i></div>
+                <div class="floating-element"><i class="fas fa-users"></i></div>
+            </div>
+            
+            <div class="container">
+                <h2 class="fade-in">Добро пожаловать в <span class="highlight">LAKE FEST</span>! ☕️</h2>
+                <p class="fade-in">Привет, сосед! Мы рады тебя видеть.💋</p>
+                <p class="fade-in">Мы — инициативная команда подростков из дачного посёлка Лесные Озёра. Мы верим, что самое интересное начинается, когда собираются увлечённые люди.</p>
+                
+                <div class="cta-buttons fade-in">
+                    <a href="https://t.me/lakefest" class="btn btn-telegram" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-telegram"></i> Наш канал
+                    </a>
+                    <a href="https://t.me/lakefestchat" class="btn btn-chat" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-comments"></i> Чат сообщества
+                    </a>
+                    <a href="#contacts" class="btn btn-contact">
+                        <i class="fas fa-envelope"></i> Связаться с нами
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="fade-in">
+            <div class="container">
+                <h2 class="section-title">О нас</h2>
+                <div class="about-content">
+                    <p class="about-text">
+                        Мы создаём своё комьюнити — пространство, где можно расти, творить и находить друзей.
+                    </p>
+                    <p class="about-description">
+                        Поэтому мы создаём своё комьюнити — пространство, где можно расти, творить и находить друзей. 
+                        Наша цель — объединять подростков и взрослых, строя мосты через общие интересы и дела, 
+                        наполняя наш посёлок атмосферой доверия, вдохновения и классного совместного отдыха.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="mission" class="fade-in">
+            <div class="container">
+                <h2 class="section-title">Наша миссия</h2>
+                <div class="mission-cards">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Создавать проекты</h3>
+                        <p>Создавать свои проекты и события, которые делают нашу жизнь здесь ярче.</p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Прокачивать навыки</h3>
+                        <p>Прокачивать самые разные навыки — от организации до творчества.</p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Объединять людей</h3>
+                        <p>Объединять подростков и взрослых, строя мосты через общие интересы и дела.</p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Наполнять атмосферой</h3>
+                        <p>Наполнять наш посёлок атмосферой доверия, вдохновения и классного совместного отдыха.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="events" class="fade-in">
+            <div class="container">
+                <h2 class="section-title">Что вас ждёт?</h2>
+                <div class="events-list">
+                    <div class="event-item">
+                        <div class="event-icon">
+                            <i class="fas fa-dice"></i>
+                        </div>
+                        <div>
+                            <h3>Настольные игры вечерами</h3>
+                            <p>Уютные встречи с интересными играми, новыми знакомствами и теплой атмосферой.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <div>
+                            <h3>Кинопросмотры с обсуждением и попкорном</h3>
+                            <p>Смотрим и обсуждаем интересные фильмы в компании единомышленников.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div>
+                            <h3>И многое другое, что придумаем вместе!</h3>
+                            <p>Ваши идеи и предложения делают наше комьюнити уникальным. Присоединяйтесь!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="team" class="fade-in">
+            <div class="container">
+                <h2 class="section-title">Знакомьтесь с сердцем команды</h2>
+                <div class="team-container">
+                    <div class="team-member">
+                        <div class="member-header">
+                            <div class="member-name">Алёна</div>
+                            <div class="member-role">Душа и генератор идей</div>
+                        </div>
+                        <div class="member-desc">
+                            <p>Наша душа и генератор прекрасных идей, которая заряжает всех энергией и творчеством. Организатор и вдохновитель всех наших мероприятий.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-header">
+                            <div class="member-name">Команда организаторов</div>
+                            <div class="member-role">Дани, Юли, Киры и Максима</div>
+                        </div>
+                        <div class="member-desc">
+                            <p>Те, кто превращают хаос идей в чёткий план и делают так, чтобы всё прошло на высоте. Без них ни одно мероприятие не было бы таким успешным.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="channel-info">
+                    <h3>Наш канал — главный штаб</h3>
+                    <p>
+                        Здесь анонсы всех событий, голосования, фотоотчёты и пространство для ваших предложений.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contacts" class="fade-in">
+            <div class="container">
+                <h2 class="section-title">Контакты</h2>
+                <div class="contacts-container">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <h3>Наш Telegram-канал</h3>
+                        <p>Подписывайтесь на наш канал, чтобы быть в курсе всех событий и анонсов.</p>
+                        <div class="contact-links">
+                            <a href="https://t.me/lakefest" class="btn btn-telegram" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-telegram"></i> Перейти в канал
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Чат сообщества</h3>
+                        <p>Присоединяйтесь к нашему чату, чтобы общаться, предлагать идеи и знакомиться.</p>
+                        <div class="contact-links">
+                            <a href="https://t.me/lakefestchat" class="btn btn-chat" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-comments"></i> Присоединиться к чату
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Организатор</h3>
+                        <p>Свяжитесь с Алёной, если у вас есть вопросы, идеи или предложения сотрудничества.</p>
+                        <div class="contact-links">
+                            <a href="https://t.me/AlenaMikhalkina777" class="btn btn-contact" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-telegram"></i> @AlenaMikhalkina777
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="final-message">
+                    <h3>Давай создавать уютное и активное комьюнити Лесных Озёр вместе!</h3>
+                    <p>🥂С уважением и предвкушением крутых событий,<br>команда LAKE FEST.🥂</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span>LAKE</span> FEST
+                </div>
+                
+                <div class="footer-links">
+                    <a href="https://t.me/lakefest" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
+                    <a href="https://t.me/lakefestchat" target="_blank" rel="noopener noreferrer"><i class="fas fa-comments"></i></a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 LAKE FEST. Команда Лесные Озёра. Сайт создан с любовью к нашему сообществу</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
