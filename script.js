@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // ===== Мобильное меню =====
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mainNav = document.getElementById('mainNav');
     
@@ -9,12 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            
             mainNav.classList.remove('active');
-            
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 window.scrollTo({
@@ -26,93 +24,70 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     const fadeElements = document.querySelectorAll('.fade-in');
-    
-    const fadeInOnScroll = function() {
-        fadeElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.style.opacity = "1";
-                element.style.transform = "translateY(0) translateZ(0)";
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             }
         });
-    };
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     
-    const parallaxElements = document.querySelectorAll('.parallax-layer');
-    const missionCards = document.querySelectorAll('.mission-card');
-    const teamMembers = document.querySelectorAll('.team-member');
-    const contactCards = document.querySelectorAll('.contact-card');
+    fadeElements.forEach(el => observer.observe(el));
     
-    const handleParallax = function() {
+    const parallaxLayers = document.querySelectorAll('.parallax-layer');
+    const isMobile = () => window.innerWidth <= 768;
+    
+    function updateParallax() {
+        if (isMobile()) return;
         const scrolled = window.pageYOffset;
-        
-        parallaxElements.forEach((layer, index) => {
-            const speed = (index + 1) * 0.5;
+        parallaxLayers.forEach((layer, index) => {
+            const speed = (index + 1) * 0.3; 
             const yPos = -(scrolled * speed * 0.1);
-            layer.style.transform = `translateZ(-${index+1}px) scale(${index+2}) translateY(${yPos}px)`;
+            layer.style.transform = `translateY(${yPos}px)`;
         });
-        
-        missionCards.forEach((card, index) => {
-            const cardTop = card.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (cardTop < windowHeight && cardTop > -300) {
-                const speed = 0.05;
-                const yPos = (windowHeight - cardTop) * speed;
-                card.style.transform = `translateY(${-yPos}px) translateZ(${yPos/10}px) rotateY(${yPos/100}deg)`;
-            }
-        });
-        
-        teamMembers.forEach((member, index) => {
-            const memberTop = member.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (memberTop < windowHeight && memberTop > -300) {
-                const speed = 0.03;
-                const yPos = (windowHeight - memberTop) * speed;
-                member.style.transform = `translateY(${-yPos}px) translateZ(${yPos/15}px)`;
-            }
-        });
-        
-        contactCards.forEach((card, index) => {
-            const cardTop = card.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (cardTop < windowHeight && cardTop > -300) {
-                const speed = 0.04;
-                const yPos = (windowHeight - cardTop) * speed;
-                card.style.transform = `translateY(${-yPos}px) translateZ(${yPos/12}px)`;
-            }
-        });
-    };
+    }
     
+    let ticking = false;
     window.addEventListener('scroll', () => {
-        fadeInOnScroll();
-        handleParallax();
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateParallax();
+                ticking = false;
+            });
+            ticking = true;
+        }
     });
     
-    fadeInOnScroll();
-    handleParallax();
+    updateParallax();
     
-    fadeElements.forEach(element => {
-        element.style.opacity = "0";
-        element.style.transform = "translateY(30px) translateZ(0)";
-        element.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const body = document.body;
+    
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-theme');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        const isDark = body.classList.contains('dark-theme');
+        if (isDark) {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+        }
     });
     
     document.querySelectorAll('.leaf').forEach(leaf => {
         const randomDelay = Math.random() * 20;
         leaf.style.animationDelay = `-${randomDelay}s`;
-    });
-    
-    document.querySelectorAll('.btn').forEach(btn => {
-        btn.addEventListener('mouseenter', function() {
-            this.style.transform = `translateY(-8px) translateZ(15px) scale(1.05)`;
-        });
-        
-        btn.addEventListener('mouseleave', function() {
-            this.style.transform = `translateY(0) translateZ(0) scale(1)`;
-        });
     });
 });
